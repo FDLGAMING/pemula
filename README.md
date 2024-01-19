@@ -1,0 +1,2 @@
+# pemula
+baru mulai a
