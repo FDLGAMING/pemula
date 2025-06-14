@@ -17,12 +17,14 @@
       justify-content: center;
       height: 100vh;
       overflow: hidden;
+      animation: fadeIn 2s ease forwards;
     }
 
     .logo {
       font-size: 5rem;
       cursor: pointer;
       transition: transform 0.6s ease, filter 0.6s ease;
+      animation: glitchLogo 1.5s ease-in-out;
     }
 
     .logo:hover {
@@ -33,6 +35,13 @@
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
+      animation: fadeInUp 2s ease-in-out 1s forwards;
+      opacity: 0;
+    }
+
+    .links {
+      animation: fadeInUp 2s ease-in-out 1.5s forwards;
+      opacity: 0;
     }
 
     .links a {
@@ -47,17 +56,20 @@
       color: #ff00aa;
     }
 
-    @keyframes glitch {
-      0% { transform: skew(0deg); }
-      20% { transform: skew(5deg); }
-      40% { transform: skew(-5deg); }
-      60% { transform: skew(3deg); }
-      80% { transform: skew(-2deg); }
-      100% { transform: skew(0deg); }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
-    h1 {
-      animation: glitch 1s infinite;
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glitchLogo {
+      0% { transform: scale(0.8) rotate(0deg); filter: brightness(0); }
+      50% { transform: scale(1.2) rotate(10deg); filter: drop-shadow(0 0 20px #f0f); }
+      100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 0); }
     }
   </style>
 </head>
