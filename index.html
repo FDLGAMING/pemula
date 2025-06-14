@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Silent Bahar 🥀</title>
   <style>
     body {
@@ -11,13 +11,28 @@
       background: black;
       color: white;
       font-family: 'Courier New', Courier, monospace;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .container {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-      animation: fadeIn 2s ease forwards;
+      align-items: center;
+      animation: fadeInUp 2s ease-in-out 1s forwards;
+      opacity: 0;
+      padding: 2rem;
     }
 
     .logo {
@@ -35,25 +50,23 @@
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
-      animation: fadeInUp 2s ease-in-out 1s forwards;
-      opacity: 0;
-    }
-
-    .links {
-      animation: fadeInUp 2s ease-in-out 1.5s forwards;
-      opacity: 0;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
     }
 
     .links a {
       color: #00ffff;
       text-decoration: none;
       margin: 0.5rem;
-      font-size: 1.2rem;
-      transition: color 0.3s;
+      font-size: 1.3rem;
+      transition: all 0.4s;
+      display: inline-block;
+      text-shadow: 0 0 10px #00f;
     }
 
     .links a:hover {
       color: #ff00aa;
+      transform: scale(1.1);
+      text-shadow: 0 0 15px #ff00aa;
     }
 
     @keyframes fadeIn {
@@ -62,7 +75,7 @@
     }
 
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
+      0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
@@ -74,14 +87,18 @@
   </style>
 </head>
 <body>
-  <div class="logo" onclick="rotateLogo(this)">🥀</div>
-  <h1>SILENT BAHAR</h1>
-  <div class="links">
-    <a href="https://www.youtube.com/@fadilldarmawan" target="_blank">YouTube</a>
-    <a href="https://www.instagram.com/silent_bahar_pm" target="_blank">Instagram</a>
-    <a href="https://www.facebook.com/share/1Ej5ijttur/" target="_blank">Facebook</a>
-    <a href="https://www.tiktok.com/@fdl01gaming13" target="_blank">TikTok</a>
-    <a href="https://wa.me/6283876176778" target="_blank">WhatsApp</a>
+  <canvas id="stars"></canvas>
+
+  <div class="container">
+    <div class="logo" onclick="rotateLogo(this)">🥀</div>
+    <h1>SILENT BAHAR</h1>
+    <div class="links">
+      <a href="https://www.youtube.com/@fadilldarmawan" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/silent_bahar_pm" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/share/1Ej5ijttur/" target="_blank">Facebook</a>
+      <a href="https://www.tiktok.com/@fdl01gaming13" target="_blank">TikTok</a>
+      <a href="https://wa.me/6283876176778" target="_blank">WhatsApp</a>
+    </div>
   </div>
 
   <audio autoplay loop>
@@ -98,6 +115,53 @@
         element.style.filter = 'drop-shadow(0 0 0 #000)';
       }, 1000);
     }
+
+    // Stars animation
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+    let w, h;
+    let stars = [];
+
+    function resizeCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      stars = Array.from({ length: 150 }).map(() => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.5,
+        d: Math.random() * 0.5 + 0.5
+      }));
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "white";
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      updateStars();
+    }
+
+    function updateStars() {
+      stars.forEach(s => {
+        s.y += s.d;
+        if (s.y > h) {
+          s.y = 0;
+          s.x = Math.random() * w;
+        }
+      });
+    }
+
+    function animate() {
+      drawStars();
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+    animate();
   </script>
 </body>
 </html>
