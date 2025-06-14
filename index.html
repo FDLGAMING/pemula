@@ -1,64 +1,91 @@
+
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silent Bahar</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silent Bahar 🥀</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
+      background: black;
+      color: white;
+      font-family: 'Courier New', Courier, monospace;
       display: flex;
       flex-direction: column;
-      height: 100vh;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
     }
+
     .logo {
-      font-size: 60px;
-      text-shadow: 0 0 15px #ffcc00;
+      font-size: 5rem;
+      cursor: pointer;
+      transition: transform 0.6s ease, filter 0.6s ease;
     }
-    .rose {
-      font-size: 50px;
-      color: #e00;
+
+    .logo:hover {
+      transform: rotate(360deg) scale(1.1);
+      filter: drop-shadow(0 0 20px #ff0055);
     }
+
     h1 {
-      margin: 10px 0;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
+
     .links a {
-      display: block;
-      margin: 10px 0;
-      padding: 15px 30px;
-      background: #222;
-      border-radius: 10px;
+      color: #00ffff;
       text-decoration: none;
-      color: #fff;
-      font-size: 20px;
-      transition: 0.3s;
+      margin: 0.5rem;
+      font-size: 1.2rem;
+      transition: color 0.3s;
     }
+
     .links a:hover {
-      background: #444;
-      transform: scale(1.05);
+      color: #ff00aa;
+    }
+
+    @keyframes glitch {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(5deg); }
+      40% { transform: skew(-5deg); }
+      60% { transform: skew(3deg); }
+      80% { transform: skew(-2deg); }
+      100% { transform: skew(0deg); }
+    }
+
+    h1 {
+      animation: glitch 1s infinite;
     }
   </style>
 </head>
 <body>
-
-  <div class="rose">🥀</div>
-  <div class="logo">999⚡ Silent B. pM</div>
-  <h1>Link & Social</h1>
-
+  <div class="logo" onclick="rotateLogo(this)">🥀</div>
+  <h1>SILENT BAHAR</h1>
   <div class="links">
-    <a href="https://wa.me/6283876176778?text=Halo%2C%20saya%20dari%20Silentbahar" target="_blank">Chat WhatsApp</a>
-    <a href="https://www.youtube.com/@fadilldarmawan?si=-XFcazI2ptX7Md7O" target="_blank">YouTube</a>
-    <a href="https://www.tiktok.com/@fdl01gaming13" target="_blank">TikTok</a>
+    <a href="https://www.youtube.com/@fadilldarmawan" target="_blank">YouTube</a>
     <a href="https://www.instagram.com/silent_bahar_pm" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/share/1Ej5ijttur/" target="_blank">Facebook</a>
+    <a href="https://www.tiktok.com/@fdl01gaming13" target="_blank">TikTok</a>
+    <a href="https://wa.me/6283876176778" target="_blank">WhatsApp</a>
   </div>
 
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/5nt2qa.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function rotateLogo(element) {
+      element.style.transform = 'rotate(360deg) scale(1.2)';
+      element.style.filter = 'drop-shadow(0 0 30px #ff00ff)';
+      setTimeout(() => {
+        element.style.transform = 'rotate(0deg) scale(1)';
+        element.style.filter = 'drop-shadow(0 0 0 #000)';
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
