@@ -3,68 +3,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Silent Bahar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silent Bahar 🥀</title>
   <style>
     body {
       margin: 0;
-      background-color: black;
+      background: black;
       color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow-x: hidden;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
     }
-    header {
-      padding: 40px;
-      text-align: center;
-      font-size: 2.5em;
-      color: #fff;
-      animation: fadeInDown 1s ease-out;
+
+    .logo {
+      font-size: 5rem;
+      cursor: pointer;
+      transition: transform 0.6s ease, filter 0.6s ease;
     }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .logo:hover {
+      transform: rotate(360deg) scale(1.1);
+      filter: drop-shadow(0 0 20px #ff0055);
     }
-    .content {
-      text-align: center;
-      padding: 30px;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    .btn-socials a {
-      display: inline-block;
-      margin: 10px;
+
+    .links a {
+      color: #00ffff;
       text-decoration: none;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 10px;
-      background-color: #444;
-      transition: all 0.3s ease;
+      margin: 0.5rem;
+      font-size: 1.2rem;
+      transition: color 0.3s;
     }
-    .btn-socials a:hover {
-      background-color: #666;
-      transform: scale(1.05);
+
+    .links a:hover {
+      color: #ff00aa;
+    }
+
+    @keyframes glitch {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(5deg); }
+      40% { transform: skew(-5deg); }
+      60% { transform: skew(3deg); }
+      80% { transform: skew(-2deg); }
+      100% { transform: skew(0deg); }
+    }
+
+    h1 {
+      animation: glitch 1s infinite;
     }
   </style>
 </head>
 <body>
-  <header>Silent Bahar 🥀</header>
-
-  <div class="content">
-    <p>Welcome to my personal site. Connect with me!</p>
-    <div class="btn-socials">
-      <a href="https://www.facebook.com/share/1Ej5ijttur/" target="_blank">Facebook</a>
-      <a href="https://www.instagram.com/silent_bahar_pm?igsh=djdrMXRncmZxZG0x" target="_blank">Instagram</a>
-      <a href="https://youtube.com/@fadilldarmawan?si=-XFcazI2ptX7Md7O" target="_blank">YouTube</a>
-      <a href="https://www.tiktok.com/@fdl01gaming13?_t=ZS-8xCblznZ7YN&_r=1" target="_blank">TikTok</a>
-    </div>
+  <div class="logo" onclick="rotateLogo(this)">🥀</div>
+  <h1>SILENT BAHAR</h1>
+  <div class="links">
+    <a href="https://www.youtube.com/@fadilldarmawan" target="_blank">YouTube</a>
+    <a href="https://www.instagram.com/silent_bahar_pm" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/share/1Ej5ijttur/" target="_blank">Facebook</a>
+    <a href="https://www.tiktok.com/@fdl01gaming13" target="_blank">TikTok</a>
+    <a href="https://wa.me/6283876176778" target="_blank">WhatsApp</a>
   </div>
 
-  <!-- WhatsApp Chat Button -->
-  <a href="https://wa.me/6283876176778" target="_blank"
-     style="position:fixed; bottom:20px; right:20px; background-color:#25D366; color:white;
-            padding:12px 18px; border-radius:50px; text-decoration:none; font-weight:bold;
-            box-shadow:0 0 15px #25D366; transition:0.3s; z-index:9999;"
-     onmouseover="this.style.transform='scale(1.1)'"
-     onmouseout="this.style.transform='scale(1)'">
-    💬 Chat WA
-  </a>
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/5nt2qa.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    function rotateLogo(element) {
+      element.style.transform = 'rotate(360deg) scale(1.2)';
+      element.style.filter = 'drop-shadow(0 0 30px #ff00ff)';
+      setTimeout(() => {
+        element.style.transform = 'rotate(0deg) scale(1)';
+        element.style.filter = 'drop-shadow(0 0 0 #000)';
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
