@@ -71,6 +71,57 @@
       50% { transform: scale(1.2) rotate(10deg); filter: drop-shadow(0 0 20px #f0f); }
       100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 0); }
     }
+  #menuBtn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 9999;
+    background: transparent;
+    border: 2px solid cyan;
+    color: cyan;
+    font-size: 24px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#sideMenu {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 260px;
+    height: 100vh;
+    background: #000;
+    border-right: 2px solid cyan;
+    z-index: 9998;
+    padding: 25px;
+    box-sizing: border-box;
+    transition: left 0.3s ease;
+}
+
+#sideMenu.active {
+    left: 0;
+}
+
+#sideMenu h2 {
+    color: cyan;
+    margin-top: 45px;
+}
+
+#sideMenu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 0;
+    border-bottom: 1px solid #333;
+}
+
+#closeBtn {
+    background: transparent;
+    border: none;
+    color: #ff00ff;
+    font-size: 25px;
+    cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -98,6 +149,27 @@
         element.style.filter = 'drop-shadow(0 0 0 #000)';
       }, 1000);
     }
+  </script>
+<button id="menuBtn">☰</button>
+
+<div id="sideMenu">
+    <button id="closeBtn">✕</button>
+    <h2>SILENT BAHAR</h2>
+
+    <a href="#">HOME</a>
+    <a href="#">ABOUT</a>
+    <a href="#">PROJECTS</a>
+    <a href="#">MUSIC</a>
+    <a href="#">SOCIAL MEDIA</a>
+</div>
+  <script>
+document.getElementById("menuBtn").onclick = function() {
+    document.getElementById("sideMenu").classList.add("active");
+};
+
+document.getElementById("closeBtn").onclick = function() {
+    document.getElementById("sideMenu").classList.remove("active");
+};
   </script>
 </body>
 </html>
