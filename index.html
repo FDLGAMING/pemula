@@ -163,13 +163,17 @@
     <a href="#">SOCIAL MEDIA</a>
 </div>
   <script>
-document.getElementById("menuBtn").onclick = function() {
-    document.getElementById("sideMenu").classList.add("active");
-};
+const menuBtn = document.getElementById("menuBtn");
+const sideMenu = document.getElementById("sideMenu");
+const closeBtn = document.getElementById("closeBtn");
 
-document.getElementById("closeBtn").onclick = function() {
-    document.getElementById("sideMenu").classList.remove("active");
-};
+menuBtn.addEventListener("click", function() {
+    sideMenu.classList.add("active");
+});
+
+closeBtn.addEventListener("click", function() {
+    sideMenu.classList.remove("active");
+});
   </script>
 </body>
 </html>
