@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Code Lab | Silent Bahar</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            font-family: "Courier New", monospace;
+        }
+
+        .code-page {
+            max-width: 900px;
+            margin: auto;
+            padding: 70px 20px 50px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            color: cyan;
+            text-decoration: none;
+            border: 1px solid cyan;
+            padding: 8px 14px;
+            margin-bottom: 40px;
+        }
+
+        .back-btn:hover {
+            background: cyan;
+            color: #000;
+        }
+
+        h1 {
+            text-align: center;
+            color: cyan;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px cyan;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 45px;
+            line-height: 1.6;
+        }
+
+        .code-card {
+            margin-bottom: 30px;
+            border: 1px solid cyan;
+            background: rgba(0, 255, 255, 0.03);
+            padding: 20px;
+        }
+
+        .code-card h2 {
+            color: #ff00ff;
+            margin-top: 0;
+            font-size: 19px;
+        }
+
+        .code-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #333;
+            background: #080808;
+            margin: 15px 0;
+        }
+
+        .explanation {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        .tag {
+            color: cyan;
+        }
+
+        .footer {
+            text-align: center;
+            color: cyan;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="code-page">
+
+        <a href="index.html" class="back-btn">← HOME</a>
+
+        <h1>💻 CODE LAB</h1>
+
+        <p class="subtitle">
+            A look inside the code behind Silent Bahar.
+            <br>
+            Built, tested, broken, fixed, and improved.
+        </p>
+
+
+        <!-- 01 HAMBURGER -->
+
+        <section class="code-card">
+
+            <h2>01 — ☰ HAMBURGER MENU</h2>
+
+            <svg class="code-image"
+                 viewBox="0 0 900 360"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <rect width="900" height="360" fill="#080808"/>
+
+                <text x="25" y="45"
+                      fill="#ff00ff"
+                      font-size="20"
+                      font-family="monospace">
+                    HTML — MENU BUTTON
+                </text>
+
+                <text x="25" y="90"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;button id="menuBtn"&gt;☰&lt;/button&gt;
+                </text>
+
+                <text x="25" y="145"
+                      fill="#ff00ff"
+                      font-size="20"
+                      font-family="monospace">
+                    JAVASCRIPT — OPEN MENU
+                </text>
+
+                <text x="25" y="190"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    menuBtn.addEventListener("click", function() {
+                </text>
+
+                <text x="45" y="230"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    sideMenu.classList.add("active");
+                </text>
+
+                <text x="25" y="270"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    });
+                </text>
+
+            </svg>
+
+            <p class="explanation">
+                Kode ini membuat tombol <span class="tag">☰</span>
+                yang digunakan untuk membuka side menu.
+                JavaScript mendeteksi ketika tombol ditekan lalu
+                menambahkan class <span class="tag">active</span>
+                pada menu.
+            </p>
+
+        </section>
+
+
+        <!-- 02 CLOSE -->
+
+        <section class="code-card">
+
+            <h2>02 — ✕ CLOSE BUTTON</h2>
+
+            <svg class="code-image"
+                 viewBox="0 0 900 320"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <rect width="900" height="320" fill="#080808"/>
+
+                <text x="25" y="45"
+                      fill="#ff00ff"
+                      font-size="20"
+                      font-family="monospace">
+                    JAVASCRIPT — CLOSE MENU
+                </text>
+
+                <text x="25" y="95"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    closeBtn.addEventListener("click", function() {
+                </text>
+
+                <text x="45" y="140"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    sideMenu.classList.remove("active");
+                </text>
+
+                <text x="25" y="185"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    });
+                </text>
+
+                <text x="25" y="245"
+                      fill="#ff00ff"
+                      font-size="18"
+                      font-family="monospace">
+                    // Menu kembali tertutup
+                </text>
+
+            </svg>
+
+            <p class="explanation">
+                Bagian ini menangani tombol
+                <span class="tag">✕</span>.
+                Saat tombol ditekan, class
+                <span class="tag">active</span>
+                dihapus sehingga menu kembali tertutup.
+            </p>
+
+        </section>
+
+
+        <!-- 03 NAVIGATION -->
+
+        <section class="code-card">
+
+            <h2>03 — 🔗 PAGE NAVIGATION</h2>
+
+            <svg class="code-image"
+                 viewBox="0 0 900 300"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <rect width="900" height="300" fill="#080808"/>
+
+                <text x="25" y="50"
+                      fill="#ff00ff"
+                      font-size="20"
+                      font-family="monospace">
+                    HTML — PAGE LINK
+                </text>
+
+                <text x="25" y="105"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;a href="about.html"&gt;👤 ABOUT&lt;/a&gt;
+                </text>
+
+                <text x="25" y="160"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;a href="projects.html"&gt;💻 PROJECTS&lt;/a&gt;
+                </text>
+
+                <text x="25" y="215"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;a href="music.html"&gt;🎵 MUSIC&lt;/a&gt;
+                </text>
+
+            </svg>
+
+            <p class="explanation">
+                Atribut <span class="tag">href</span> digunakan
+                untuk menghubungkan satu halaman HTML dengan halaman
+                lainnya. Inilah yang membuat About, Music, Projects,
+                dan halaman lainnya bisa berdiri sendiri.
+            </p>
+
+        </section>
+
+
+        <!-- 04 MUSIC -->
+
+        <section class="code-card">
+
+            <h2>04 — 🎵 MUSIC LISTEN BUTTON</h2>
+
+            <svg class="code-image"
+                 viewBox="0 0 900 320"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <rect width="900" height="320" fill="#080808"/>
+
+                <text x="25" y="50"
+                      fill="#ff00ff"
+                      font-size="20"
+                      font-family="monospace">
+                    MUSIC — EXTERNAL LINK
+                </text>
+
+                <text x="25" y="105"
+                      fill="#00ffff"
+                      font-size="17"
+                      font-family="monospace">
+                    &lt;a href="https://youtu.be/..."
+                </text>
+
+                <text x="45" y="150"
+                      fill="#ffffff"
+                      font-size="17"
+                      font-family="monospace">
+                    target="_blank"
+                </text>
+
+                <text x="45" y="195"
+                      fill="#ffffff"
+                      font-size="17"
+                      font-family="monospace">
+                    rel="noopener"&gt;
+                </text>
+
+                <text x="45" y="240"
+                      fill="#00ffff"
+                      font-size="17"
+                      font-family="monospace">
+                    ▶ LISTEN
+                </text>
+
+                <text x="25" y="280"
+                      fill="#ffffff"
+                      font-size="17"
+                      font-family="monospace">
+                    &lt;/a&gt;
+                </text>
+
+            </svg>
+
+            <p class="explanation">
+                Tombol <span class="tag">LISTEN</span> menggunakan
+                link eksternal. Dengan
+                <span class="tag">target="_blank"</span>,
+                lagu dibuka di tab baru sehingga halaman Music
+                Silent Bahar tetap aman.
+            </p>
+
+        </section>
+
+
+        <!-- 05 PROJECT -->
+
+        <section class="code-card">
+
+            <h2>05 — 💻 PROJECT CARD</h2>
+
+            <svg class="code-image"
+                 viewBox="0 0 900 330"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <rect width="900" height="330" fill="#080808"/>
+
+                <text x="25" y="45"
+                      fill="#ff00ff"
+                      font-size="20"
+                      font-family="monospace">
+                    HTML — PROJECT STRUCTURE
+                </text>
+
+                <text x="25" y="95"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;div class="project"&gt;
+                </text>
+
+                <text x="45" y="140"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;h2&gt;🥀 Silent Bahar Website&lt;/h2&gt;
+                </text>
+
+                <text x="45" y="185"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;p&gt;Personal website...&lt;/p&gt;
+                </text>
+
+                <text x="45" y="230"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;div class="tech"&gt;HTML • CSS • JS&lt;/div&gt;
+                </text>
+
+                <text x="25" y="275"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    &lt;/div&gt;
+                </text>
+
+            </svg>
+
+            <p class="explanation">
+                Struktur ini digunakan untuk membuat kartu project.
+                Setiap project memiliki judul, deskripsi, dan teknologi
+                yang digunakan sehingga portfolio mudah dibaca.
+            </p>
+
+        </section>
+
+
+        <!-- 06 STORY -->
+
+        <section class="code-card">
+
+            <h2>06 — 📱 BUILT ON ANDROID</h2>
+
+            <svg class="code-image"
+                 viewBox="0 0 900 270"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <rect width="900" height="270" fill="#080808"/>
+
+                <text x="25" y="55"
+                      fill="#ff00ff"
+                      font-size="20"
+                      font-family="monospace">
+                    SILENT BAHAR DEVELOPMENT
+                </text>
+
+                <text x="25" y="110"
+                      fill="#00ffff"
+                      font-size="18"
+                      font-family="monospace">
+                    DEVICE = TECNO SPARK 9T (KH6)
+                </text>
+
+                <text x="25" y="155"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    OS = ANDROID 12
+                </text>
+
+                <text x="25" y="200"
+                      fill="#ffffff"
+                      font-size="18"
+                      font-family="monospace">
+                    STATUS = STILL BUILDING
+                </text>
+
+            </svg>
+
+            <p class="explanation">
+                Project ini bukan hanya tentang hasil akhir.
+                Silent Bahar juga menjadi catatan perjalanan belajar
+                programming dan web development dari perangkat mobile.
+            </p>
+
+        </section>
+
+
+        <div class="footer">
+
+            <p>SILENT BAHAR • CODE LAB</p>
+            <p>FADIL DARMAWAN × CHATGPT</p>
+            <p>© 2025–2026</p>
+
+        </div>
+
+    </main>
+
+</body>
+  </html>
